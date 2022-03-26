@@ -10,9 +10,9 @@ source:
   sha256: 829e9b251be54e6642a4c4ad0f0cdc105da8222def859ae0389f6db1d2f5d762
 
 build:
-  number: 0
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
+  number: 0
 
 requirements:
   host:
@@ -35,9 +35,10 @@ test:
 
 about:
   home: https://airflow.apache.org/
-  summary: Provider for Apache Cassandra for Apache Airflow
+  summary: Provider for Apache Airflow. Implements apache-airflow-providers-apache-cassandra package
   license: Apache-2.0
   license_file: LICENSE
+  license_family: Apache
   doc_url: https://airflow.apache.org/docs/apache-airflow-providers-apache-cassandra/stable/index.html
   dev_url: https://github.com/apache/airflow/
 
