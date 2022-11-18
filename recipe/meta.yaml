@@ -1,5 +1,5 @@
 {% set name = "apache-airflow-providers-apache-cassandra" %}
-{% set version = "3.0.0" %}
+{% set version = "3.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/apache-airflow-providers-apache-cassandra-{{ version }}.tar.gz
-  sha256: ecb8ae3fbec953a6169890fd1572a0aba2a6517b93b0f45bca49e1dbd99ea47a
+  sha256: 2770504920da130a5ba724d1b775275f747d541d278f71945c1b73d8634929dc
 
 build:
   noarch: python
@@ -21,7 +21,7 @@ requirements:
     - setuptools
   run:
     - python >=3.7
-    - apache-airflow >=2.2.0
+    - apache-airflow >=2.3.0
     - cassandra-driver >=3.13.0
 
 test:
