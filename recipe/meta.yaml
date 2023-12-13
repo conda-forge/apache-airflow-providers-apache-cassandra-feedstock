@@ -1,13 +1,13 @@
 {% set name = "apache-airflow-providers-apache-cassandra" %}
-{% set version = "3.3.0" %}
+{% set version = "3.4.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/apache-airflow-providers-apache-cassandra-{{ version }}.tar.gz
-  sha256: b547ffc8fa5530b3821a46a0c515a66ea7dbe5d4a69cb849c82f9bbb91de14da
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/apache_airflow_providers_apache_cassandra-{{ version }}.tar.gz
+  sha256: 60512a717763a05c27f6780b4db4407d6b1d283a0a3e216043f69303b62cf4dd
 
 build:
   noarch: python
@@ -16,30 +16,27 @@ build:
 
 requirements:
   host:
-    - python >=3.8
-    - setuptools >=67.2.0,<68.0.0
+    - python >=3.8,<4.dev0
+    - flit-core >=3.2,<4
     - pip
   run:
     - python >=3.8
-    - apache-airflow >=2.5.0
+    - apache-airflow >=2.6.0
     - cassandra-driver >=3.13.0
 
 test:
   imports:
     - airflow.providers.apache.cassandra
-    - airflow.providers.apache.cassandra.hooks
   commands:
     - pip check
   requires:
     - pip
 
 about:
-  home: https://airflow.apache.org/
-  summary: Provider for Apache Airflow. Implements apache-airflow-providers-apache-cassandra package
+  home: https://github.com/apache/airflow/
+  summary: Provider package apache-airflow-providers-apache-cassandra for Apache Airflow
   license: Apache-2.0
-  license_file:
-    - LICENSE
-    - NOTICE
+  license_file: airflow/providers/apache/cassandra/LICENSE
   license_family: Apache
   doc_url: https://airflow.apache.org/docs/apache-airflow-providers-apache-cassandra/stable/index.html
   dev_url: https://github.com/apache/airflow/
