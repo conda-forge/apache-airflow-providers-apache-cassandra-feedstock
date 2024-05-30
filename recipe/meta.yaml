@@ -1,5 +1,5 @@
 {% set name = "apache-airflow-providers-apache-cassandra" %}
-{% set version = "3.5.0" %}
+{% set version = "3.5.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/apache_airflow_providers_apache_cassandra-{{ version }}.tar.gz
-  sha256: 4e41447c95d22cfd657142ce9816e5986634f5b3474deeb9246f96312facdb36
+  sha256: 159b1fcd5752df33fd065bfa37ffc38325ca0fb936aca280048a62f09a71f8bc
 
 build:
   noarch: python
