@@ -1,13 +1,13 @@
 {% set name = "apache-airflow-providers-apache-cassandra" %}
-{% set version = "3.6.0" %}
+{% set version = "3.7.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/apache_airflow_providers_apache_cassandra-{{ version }}.tar.gz
-  sha256: 55d4cc50753eac6604399acbbaa78a9ad144956566ca288ac47b1fbe47e867d7
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/apache_airflow_providers_apache_cassandra-{{ version }}.tar.gz
+  sha256: 7718da0a18e6e23f1669ef14441e89af5fc0b823e7690fec5a21ff4183a690d6
 
 build:
   noarch: python
@@ -16,12 +16,12 @@ build:
 
 requirements:
   host:
-    - python >=3.8,<4.dev0
-    - flit-core >=3.2,<4
+    - python {{ python_min }}
+    - flit-core ==3.10.0
     - pip
   run:
-    - python >=3.8
-    - apache-airflow >=2.8.0
+    - python >={{ python_min }},<4.dev0
+    - apache-airflow >=2.9.0
     - cassandra-driver >=3.29.1
 
 test:
@@ -30,6 +30,7 @@ test:
   commands:
     - pip check
   requires:
+    - python {{ python_min }}
     - pip
 
 about:
