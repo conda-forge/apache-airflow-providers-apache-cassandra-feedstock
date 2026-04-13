@@ -1,6 +1,6 @@
 context:
   name: apache-airflow-providers-apache-cassandra
-  version: 3.9.4
+  version: "3.9.4"
 
 package:
   name: ${{ name|lower }}
@@ -24,13 +24,17 @@ requirements:
     - python >=${{ python_min }}
     - apache-airflow >=2.11.0
     - apache-airflow-providers-common-compat >=1.8.0
-    - cassandra-driver >=3.29.1
+    # more restrictive for python >=3.13
+    - cassandra-driver >=3.29.3
+
 tests:
   - python:
       imports:
         - airflow.providers.apache.cassandra
       pip_check: true
-      python_version: ${{ python_min }}.*
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
 
 about:
   homepage: https://github.com/apache/airflow/
