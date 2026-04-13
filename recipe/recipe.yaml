@@ -1,6 +1,6 @@
 context:
   name: apache-airflow-providers-apache-cassandra
-  version: "3.9.3"
+  version: "3.9.4"
 
 package:
   name: ${{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/apache_airflow_providers_apache_cassandra-${{ version }}.tar.gz
-  sha256: a0346ae00dac41ad7b1e61604726fc4679f44092aae82a8a1267ccc716dbb0eb
+  sha256: c9f87564cd1b411913e9cf40dd06e8d0605578c77ce78e77e6be2fd3678b7892
 
 build:
   noarch: python
@@ -32,7 +32,9 @@ tests:
       imports:
         - airflow.providers.apache.cassandra
       pip_check: true
-      python_version: ${{ python_min }}.*
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
 
 about:
   homepage: https://github.com/apache/airflow/
